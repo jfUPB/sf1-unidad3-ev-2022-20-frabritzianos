@@ -127,13 +127,9 @@ sketch/Fabritziano.ino.cpp.o: sketch/Fabritziano.ino.cpp \
  /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash.h \
  /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/tools/sdk/esp32/include/spi_flash/include/esp_spi_flash_counters.h \
  /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/tools/sdk/esp32/include/esp_hw_support/include/soc/esp32/spiram.h \
- /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/Adafruit_MPU6050/Adafruit_MPU6050.h \
- /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/Adafruit_BusIO/Adafruit_BusIO_Register.h \
- /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/Adafruit_BusIO/Adafruit_I2CDevice.h \
+ /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/I2Cdev/I2Cdev.h \
  /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/libraries/Wire/src/Wire.h \
  /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/cores/esp32/esp32-hal.h \
- /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/Adafruit_BusIO/Adafruit_SPIDevice.h \
- /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/libraries/SPI/src/SPI.h \
- /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/cores/esp32/esp32-hal-spi.h \
- /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/Adafruit_Unified_Sensor/Adafruit_Sensor.h \
- /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/cores/esp32/Print.h
+ /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/MPU6050/MPU6050_6Axis_MotionApps20.h \
+ /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/MPU6050/MPU6050.h \
+ /home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/MPU6050/helper_3dmath.h

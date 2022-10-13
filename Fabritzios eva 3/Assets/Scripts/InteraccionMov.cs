@@ -6,7 +6,7 @@ using UnityEngine;
 public class InteraccionMov : MonoBehaviour
 {
     
-   SerialPort stream = new SerialPort("COM10", 115200);
+    SerialPort stream = new SerialPort("USB", 115200);
     public string strReceived;
      
     public string[] strData = new string[4];
