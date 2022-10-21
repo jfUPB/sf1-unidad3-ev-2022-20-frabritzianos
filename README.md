@@ -45,6 +45,38 @@ Ahora no podemos esta enviando datos contantemente ya que esto sobrecargaría el
 ![image](https://user-images.githubusercontent.com/71991263/197097690-3b5b64f7-e8b1-41c5-b918-feef0f9101e5.png)
 
 
+# Código Unity
+
+Estas son las librerias que utilizamos en Unity
+
+![image](https://user-images.githubusercontent.com/71991263/197098026-f3614904-55a9-4e3c-a093-524dc2a702bd.png)
+
+Se inicializan las variables necesarias para la lectura de datos que manda el microcontrolador y el puerto donde se va a recibir y la velocidad de este, 
+declaramos un buffer de 16 bytes para recibir los datos del microcontrolador, implementamos un timer para dar permiso a los datos, un intervalo que se encarga de controlar el tiempo de recibimiento de los datos y declaramos las variables del Quaternion qw,qx,qy,qz declarandolas publicas para ver los datos recibidos. 
+
+![image](https://user-images.githubusercontent.com/71991263/197098739-1ba5db87-415a-47a1-afd2-2216514349a2.png)
+
+## void Start
+
+Se envia un enter desde el serialport para que la el comando de permisos "j" funcione
+Luego utilizamos serialPort.DtrEnable = true; para que el microcontrolador ejecute los procesos para inicializarse antes de que ejecute el codigo
+Y por último se abre el puerto del seria.
+
+![image](https://user-images.githubusercontent.com/71991263/197099367-810a7f2c-a958-4e58-8aba-5face65faa03.png)
+
+## void Update
+
+El serialport lee los bytes que sean mayores o iguales a 16 los cuales llegan desde el buffer, y luego los convierte en un número por medio del comando BiteConverter.ToSingle cada 4 bytes salen estos datos y se colocan en el orden correspondiente a las variables float qw,qx,qy,qz transformandose en un Quaternion.
+
+
+![image](https://user-images.githubusercontent.com/71991263/197100382-17bdd017-b8b2-4e07-8e22-ac8c3527df94.png)
+
+En este timer le preguntamos al microcontrolador por los datos del acelerometro cada 0.06f por frame y así no saturar el microcontrolador con la pregunta.
+
+![image](https://user-images.githubusercontent.com/71991263/197100803-782f93ed-9f86-4b7e-942e-55163ff03767.png)
+
+Este codigo se implementa en el objeto que se desea transformar.
+
 
 
 
