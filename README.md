@@ -25,3 +25,26 @@ En esta parte en especifico inicializamos el serial y la velocidad de transmicio
 
 En este apartado del codigo está la funcionalidad central del acelerometro donde manda los datos de este a unity usando un metodo de comunicación binario y transformandolo al ASCII en unity
 
+![image](https://user-images.githubusercontent.com/71991263/197095790-8049cff3-5088-4dda-a7f9-2ff24ebb8d8e.png)
+
+Verificamos que el mpu este funcionando y mandando señales.
+
+![image](https://user-images.githubusercontent.com/71991263/197095716-9a69e05b-ecc5-4a9a-bf1e-13dd38a6d955.png)
+
+Recoge los paquetes e información del mpu y permite utilizar esta información de forma de Quaternion para una mejor transferencia de datos.
+
+![image](https://user-images.githubusercontent.com/71991263/197096536-f8a7b9f5-8586-4b50-aa80-cba1707d7013.png)
+
+Se crea un arreglo de 16 datos el cual recibe los datos de w,x,y,z en bytes de 4 osea en binary; por ende el arreglo va aumentando de 4 en 4.
+cada uno de los mempcpy ordena los datos para que lleguen de la forma w,x,y,z.
+
+![image](https://user-images.githubusercontent.com/71991263/197097104-4dd6a2db-156b-40c8-9277-9932465c2a01.png)
+
+Ahora no podemos esta enviando datos contantemente ya que esto sobrecargaría el microcontrolador y es una mala practica, por ende tenemos una variables llamada "permiso" que verifica que cada cierto tiempo se envien estos datos, siendo un arreglo de 16 bytes.
+
+![image](https://user-images.githubusercontent.com/71991263/197097690-3b5b64f7-e8b1-41c5-b918-feef0f9101e5.png)
+
+
+
+
+
