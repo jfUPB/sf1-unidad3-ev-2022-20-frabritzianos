@@ -1,9 +1,5 @@
-
-
 #include "I2Cdev.h"
-
 #include "MPU6050_6Axis_MotionApps20.h"
-
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
 #include "Wire.h"
 #endif
@@ -11,10 +7,6 @@
 MPU6050 mpu;
 
 #define OUTPUT_READABLE_QUATERNION
-
-#define INTERRUPT_PIN 2
-#define LED_PIN 13
-bool blinkState = false;
 
 bool dmpReady = false;
 uint8_t mpuIntStatus;
@@ -24,13 +16,7 @@ uint16_t fifoCount;
 uint8_t fifoBuffer[64];
 
 Quaternion q;
-VectorInt16 aa;
-VectorInt16 aaReal;
-VectorInt16 aaWorld;
-VectorFloat gravity;
 
-
-uint8_t teapotPacket[14] = {'$', 0x02, 0, 0, 0, 0, 0, 0, 0, 0, 0x00, 0x00, '\r', '\n'};
 
 // ================================================================
 // ===               INTERRUPT DETECTION ROUTINE                ===
@@ -58,7 +44,7 @@ void setup()
 
   Serial.begin(115200);
   mpu.initialize();
-  
+
   devStatus = mpu.dmpInitialize();
 
   mpu.setXGyroOffset(220);
@@ -74,8 +60,6 @@ void setup()
     mpu.PrintActiveOffsets();
 
     mpu.setDMPEnabled(true);
-
-    attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), dmpDataReady, RISING);
     mpuIntStatus = mpu.getIntStatus();
 
     dmpReady = true;
@@ -114,16 +98,9 @@ void loop()
         Serial.write(arr, 16);
       }
     }
-    /*Serial.print(q.w);
-    Serial.print(",");
-    Serial.print(q.x);
-    Serial.print(",");
-    Serial.print(q.y);
-    Serial.print(",");
-    Serial.println(q.z);*/
+   
 #endif
 
-    // for unity
-  
+   
   }
 }
