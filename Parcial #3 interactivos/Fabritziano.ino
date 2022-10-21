@@ -1,4 +1,5 @@
 
+
 #include "I2Cdev.h"
 
 #include "MPU6050_6Axis_MotionApps20.h"
@@ -11,26 +12,22 @@ MPU6050 mpu;
 
 #define OUTPUT_READABLE_QUATERNION
 
-#define INTERRUPT_PIN 2 
-#define LED_PIN 13      
+#define INTERRUPT_PIN 2
+#define LED_PIN 13
 bool blinkState = false;
 
+bool dmpReady = false;
+uint8_t mpuIntStatus;
+uint8_t devStatus;
+uint16_t packetSize;
+uint16_t fifoCount;
+uint8_t fifoBuffer[64];
 
-bool dmpReady = false; 
-uint8_t mpuIntStatus;  
-uint8_t devStatus;    
-uint16_t packetSize;    
-uint16_t fifoCount;     
-uint8_t fifoBuffer[64]; 
-
-
-Quaternion q;        
-VectorInt16 aa;      
-VectorInt16 aaReal;  
-VectorInt16 aaWorld; 
-VectorFloat gravity; 
-float euler[3];      
-float ypr[3];        
+Quaternion q;
+VectorInt16 aa;
+VectorInt16 aaReal;
+VectorInt16 aaWorld;
+VectorFloat gravity;
 
 
 uint8_t teapotPacket[14] = {'$', 0x02, 0, 0, 0, 0, 0, 0, 0, 0, 0x00, 0x00, '\r', '\n'};
@@ -39,7 +36,7 @@ uint8_t teapotPacket[14] = {'$', 0x02, 0, 0, 0, 0, 0, 0, 0, 0, 0x00, 0x00, '\r',
 // ===               INTERRUPT DETECTION ROUTINE                ===
 // ================================================================
 
-volatile bool mpuInterrupt = false; 
+volatile bool mpuInterrupt = false;
 void dmpDataReady()
 {
   mpuInterrupt = true;
@@ -54,50 +51,35 @@ void setup()
 
 #if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
   Wire.begin();
-  Wire.setClock(400000); 
+  Wire.setClock(400000);
 #elif I2CDEV_IMPLEMENTATION == I2CDEV_BUILTIN_FASTWIRE
   Fastwire::setup(400, true);
 #endif
 
- 
   Serial.begin(115200);
-  while (!Serial)
-    ; 
-
   mpu.initialize();
-  pinMode(INTERRUPT_PIN, INPUT);
-
   
-
   devStatus = mpu.dmpInitialize();
 
-  
   mpu.setXGyroOffset(220);
   mpu.setYGyroOffset(76);
   mpu.setZGyroOffset(-85);
-  mpu.setZAccelOffset(1788); 
+  mpu.setZAccelOffset(1788);
 
- 
   if (devStatus == 0)
   {
-    
+
     mpu.CalibrateAccel(6);
     mpu.CalibrateGyro(6);
     mpu.PrintActiveOffsets();
-   
 
     mpu.setDMPEnabled(true);
-
- 
 
     attachInterrupt(digitalPinToInterrupt(INTERRUPT_PIN), dmpDataReady, RISING);
     mpuIntStatus = mpu.getIntStatus();
 
-
-
     dmpReady = true;
 
-   
     packetSize = mpu.dmpGetFIFOPacketSize();
   }
 }
@@ -113,25 +95,35 @@ void loop()
     return;
 
   if (mpu.dmpGetCurrentFIFOPacket(fifoBuffer))
-  { 
+  {
 #ifdef OUTPUT_READABLE_QUATERNION
-   
-    mpu.dmpGetQuaternion(&q, fifoBuffer);
 
-    Serial.print(q.w);
+    mpu.dmpGetQuaternion(&q, fifoBuffer);
+    uint8_t arr[16] = {0};
+    mempcpy(arr, (uint8_t *)&q.w, 4);
+    mempcpy(arr + 4, (uint8_t *)&q.x, 4);
+    mempcpy(arr + 8, (uint8_t *)&q.y, 4);
+    mempcpy(arr + 12, (uint8_t *)&q.z, 4);
+
+    if (Serial.available() > 0)
+    {
+      String respuesta = Serial.readStringUntil('\n');
+
+      if (respuesta == "s")
+      {
+        Serial.write(arr, 16);
+      }
+    }
+    /*Serial.print(q.w);
     Serial.print(",");
     Serial.print(q.x);
     Serial.print(",");
     Serial.print(q.y);
     Serial.print(",");
-    Serial.println(q.z);
+    Serial.println(q.z);*/
 #endif
 
-
-    blinkState = !blinkState;
-    digitalWrite(LED_PIN, blinkState);
-
     // for unity
-    delay(100);
+  
   }
 }

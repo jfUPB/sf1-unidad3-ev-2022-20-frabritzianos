@@ -126,7 +126,7 @@ void loop()
 #ifdef OUTPUT_READABLE_QUATERNION
    
     mpu.dmpGetQuaternion(&q, fifoBuffer);
-  
+
     Serial.print(q.w);
     Serial.print(",");
     Serial.print(q.x);
