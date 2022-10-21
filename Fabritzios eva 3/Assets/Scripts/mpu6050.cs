@@ -42,7 +42,7 @@ public class mpu6050 : MonoBehaviour
         if (timer > intervalo)
         {
             timer = timer - intervalo;
-            serialPort.Write("s\n");
+            serialPort.Write("j\n");
         }  
 
      
