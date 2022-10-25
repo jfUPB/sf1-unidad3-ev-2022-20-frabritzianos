@@ -1,0 +1,62 @@
+[
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/cores/esp32"
+  },
+  {
+    "Sourcefile": null,
+    "Include": "",
+    "Includepath": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/variants/esp32"
+  },
+  {
+    "Sourcefile": "/home/pop-os/Documents/sf1-unidad3-ev-2022-20-frabritzianos/Parcial #3 interactivos/build/sketch/Fabritziano.ino.cpp",
+    "Include": "I2Cdev.h",
+    "Includepath": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/I2Cdev"
+  },
+  {
+    "Sourcefile": "/home/pop-os/Documents/sf1-unidad3-ev-2022-20-frabritzianos/Parcial #3 interactivos/build/sketch/Fabritziano.ino.cpp",
+    "Include": "Wire.h",
+    "Includepath": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/libraries/Wire/src"
+  },
+  {
+    "Sourcefile": "/home/pop-os/Documents/sf1-unidad3-ev-2022-20-frabritzianos/Parcial #3 interactivos/build/sketch/Fabritziano.ino.cpp",
+    "Include": "MPU6050_6Axis_MotionApps20.h",
+    "Includepath": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/MPU6050"
+  },
+  {
+    "Sourcefile": "/home/pop-os/Documents/sf1-unidad3-ev-2022-20-frabritzianos/Parcial #3 interactivos/build/sketch/Fabritziano.ino.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/I2Cdev/I2Cdev.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/packages/esp32/hardware/esp32/2.0.4/libraries/Wire/src/Wire.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/MPU6050/MPU6050.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/MPU6050/MPU6050_6Axis_MotionApps20.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/MPU6050/MPU6050_6Axis_MotionApps612.cpp",
+    "Include": "",
+    "Includepath": null
+  },
+  {
+    "Sourcefile": "/home/pop-os/Apps/arduino-1.8.19-linux64/arduino-1.8.19/portable/sketchbook/libraries/MPU6050/MPU6050_9Axis_MotionApps41.cpp",
+    "Include": "",
+    "Includepath": null
+  }
+]
